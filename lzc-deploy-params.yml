@@ -1,0 +1,43 @@
+params:
+  - id: kv_quant
+    type: string
+    name: KV Cache Precision
+    description: "Controls KV-cache memory use. Keep f32 for full precision, or choose int4 to reduce VRAM usage by about 7× on memory-constrained GPUs. Supported values: f32, int4."
+    default_value: f32
+    optional: false
+
+  - id: prefill_chunk
+    type: string
+    name: Prefill Chunk Size
+    description: "Number of prompt tokens processed per GPU dispatch. Keep 64 normally; use 8 or 16 only if long prompts cause GPU timeout or reset errors."
+    default_value: "64"
+    optional: false
+
+  - id: max_context
+    type: string
+    name: Maximum Context
+    description: Maximum context length in tokens. 4096 is a balanced default; larger values need more memory and may reduce quality far beyond the model's native context.
+    default_value: "4096"
+    optional: false
+
+  - id: log_level
+    type: string
+    name: Log Level
+    description: "Controls log detail. Keep info for normal use; choose debug or trace only while troubleshooting. Supported values: error, warn, info, debug, trace."
+    default_value: info
+    optional: false
+
+locales:
+  zh:
+    kv_quant:
+      name: KV 缓存精度
+      description: 控制 KV 缓存的显存占用。通常保留 f32；显存紧张时可选 int4，约可减少 7 倍 KV 缓存显存。可选值：f32、int4。
+    prefill_chunk:
+      name: 预填充分块大小
+      description: 每次 GPU 调度处理的提示 Token 数。通常保留 64；仅在长提示引发 GPU 超时或重置时改为 8 或 16。
+    max_context:
+      name: 最大上下文
+      description: 最大上下文 Token 数。4096 是兼顾能力与内存的默认值；数值越大，占用内存越多，远超模型原生上下文时还可能降低质量。
+    log_level:
+      name: 日志级别
+      description: 控制日志详细程度。日常使用保留 info；仅排查问题时使用 debug 或 trace。可选值：error、warn、info、debug、trace。
