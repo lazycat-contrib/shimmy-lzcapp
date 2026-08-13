@@ -2,12 +2,12 @@ application:
   subdomain: shimmy
   gpu_accel: true
   entries:
+    - id: main
+      title: Shimmy
+      path: /help
     - id: api
       title: API
       path: /
-    - id: help
-      title: API Help
-      path: /help
   public_path:
     - /
     - /help

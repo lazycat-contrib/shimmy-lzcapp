@@ -10,13 +10,13 @@ locales:
   en:
     name: Shimmy
     description: Lightweight local AI inference server with an OpenAI-compatible API
+    entries.main.title: Shimmy
     entries.api.title: API
-    entries.help.title: API Help
   zh:
     name: Shimmy
     description: 轻量级本地 AI 推理服务，提供兼容 OpenAI 的 API
+    entries.main.title: Shimmy
     entries.api.title: API
-    entries.help.title: API 帮助
 permissions:
   required:
     - net.internet
