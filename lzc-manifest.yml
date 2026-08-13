@@ -21,7 +21,7 @@ application:
 services:
   shimmy:
     # upstream: ghcr.io/dockers-x/shimmy:2.5.0-vulkan
-    image: registry.lazycat.cloud/czyt/dockers-x/shimmy:9c131dd4b26aee31
+    image: registry.lazycat.cloud/czyt/dockers-x/shimmy:d4fa0ad62749d78f
     user: root
     environment:
       - SHIMMY_BIND_ADDRESS=0.0.0.0:11434
