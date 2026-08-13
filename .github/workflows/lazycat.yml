@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: "31 3 * * *"
   workflow_dispatch:
+    inputs:
+      force_image_check:
+        description: Process the selected image even when the same app version is under review
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -13,7 +19,7 @@ jobs:
   lazycat:
     uses: ca-x/lazycat-github-action/.github/workflows/lazycat.yml@v1
     with:
-      operation: auto
+      operation: ${{ inputs.force_image_check && 'check' || 'auto' }}
       config: .github/lazycat-action.yml
       versioned-release-asset: true
     secrets:
