@@ -20,7 +20,7 @@ application:
       backend: http://shimmy:11434/
 services:
   shimmy:
-    # upstream: ghcr.io/dockers-x/shimmy:2.5.0
+    # upstream: ghcr.io/dockers-x/shimmy:2.5.0-vulkan
     image: registry.lazycat.cloud/czyt/dockers-x/shimmy:9c131dd4b26aee31
     user: root
     environment:
