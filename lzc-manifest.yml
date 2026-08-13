@@ -18,11 +18,10 @@ application:
       backend: file:///lzcapp/pkg/content/help/index.html
     - location: /
       backend: http://shimmy:11434/
-
 services:
   shimmy:
     # upstream: ghcr.io/dockers-x/shimmy:2.5.0
-    image: ghcr.io/dockers-x/shimmy:2.5.0
+    image: registry.lazycat.cloud/czyt/dockers-x/shimmy:9c131dd4b26aee31
     user: root
     environment:
       - SHIMMY_BIND_ADDRESS=0.0.0.0:11434
@@ -33,7 +32,6 @@ services:
       - SHIMMY_LOG_LEVEL={{ .U.log_level }}
     binds:
       - /lzcapp/var/models:/app/models
-
 usage: |
   中文：将 GGUF 模型放入应用数据的 models 目录。打开“API 帮助”入口查看当前实例地址、调用示例和支持的接口。
   English: Place GGUF models in the app data models directory. Open “API Help” for the instance URL, an example request, and supported endpoints.
