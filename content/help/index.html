@@ -111,7 +111,8 @@
     document.querySelector('#api-base').textContent=endpoint;
     document.querySelector('#curl-example').textContent=`curl ${apiBase}/v1/chat/completions \\\n+  -H 'Content-Type: application/json' \\\n+  -d '{\n    "model": "YOUR_MODEL_ID",\n    "messages": [{"role": "user", "content": "Hello!"}],\n    "max_tokens": 128\n  }'`;
     function setLanguage(locale){const chinese=locale==='zh';root.lang=chinese?'zh-CN':'en';language.textContent=chinese?'English':'中文';document.title=chinese?'Shimmy 使用指南':'Shimmy User Guide';localStorage.setItem('shimmy-language',locale)}
-    setLanguage(localStorage.getItem('shimmy-language')||(navigator.language.startsWith('zh')?'zh':'en'));
+    const requestedLanguage=new URLSearchParams(window.location.search).get('lang');
+    setLanguage(requestedLanguage==='zh'||requestedLanguage==='en'?requestedLanguage:(localStorage.getItem('shimmy-language')||(navigator.language.startsWith('zh')?'zh':'en')));
     language.addEventListener('click',()=>setLanguage(root.lang==='zh-CN'?'en':'zh'));
     copy.addEventListener('click',async()=>{await navigator.clipboard.writeText(endpoint);const locale=root.lang==='zh-CN'?'zh':'en';copy.textContent=locale==='zh'?'已复制':'Copied';window.setTimeout(()=>{copy.textContent=locale==='zh'?'复制地址':'Copy URL'},1200)});
   </script>

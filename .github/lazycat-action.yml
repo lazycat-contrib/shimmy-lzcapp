@@ -39,8 +39,16 @@ stores:
     application:
       language: zh
       name: Shimmy
+      brief: 轻量级本地 AI 推理服务，兼容 OpenAI API
+      description: 使用纯 Rust 与 WebGPU 在本地运行 GGUF 模型，通过兼容 OpenAI、Anthropic 和 Ollama 的接口接入现有 AI 工具。应用内置中英文使用指南，并自动显示当前实例的 API 地址。
+      keywords: 本地 AI, GGUF, OpenAI API, WebGPU, 推理服务
       source: https://github.com/lazycat-contrib/shimmy-lzcapp
       source_author: lazycat-contrib
+      support_pc: true
+      support_mobile: false
+      screenshot_pc_files:
+        - .github/screenshots/help-zh.png
+        - .github/screenshots/help-en.png
   private:
     enabled: true
     skip_if_version_exists: true
