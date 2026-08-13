@@ -2,3 +2,9 @@ manifest: ./lzc-manifest.yml
 pkgout: ./dist
 icon: ./icon.png
 contentdir: ./content
+
+compose_override:
+  services:
+    shimmy:
+      devices:
+        - /dev/dri:/dev/dri
