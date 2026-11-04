@@ -1,6 +1,10 @@
 application:
   subdomain: shimmy
   gpu_accel: true
+  # No public_path on purpose: Shimmy exposes an OpenAI-compatible API with no
+  # authentication of its own. Opening it to the internet would let anyone who
+  # has the URL run inference on this machine, so it stays behind the platform
+  # gate instead.
   entries:
     - id: main
       title: Shimmy
@@ -8,9 +12,6 @@ application:
     - id: api
       title: API
       path: /
-  public_path:
-    - /
-    - /help
   upstreams:
     - location: /help/logo.png
       backend: file:///lzcapp/pkg/content/help/logo.png
@@ -33,5 +34,12 @@ services:
     binds:
       - /lzcapp/var/models:/app/models
 usage: |
-  中文：将 GGUF 模型放入应用数据的 models 目录。打开“API 帮助”入口查看当前实例地址、调用示例和支持的接口。
-  English: Place GGUF models in the app data models directory. Open “API Help” for the instance URL, an example request, and supported endpoints.
+  中文：将 GGUF 模型放入应用数据的 models 目录。打开「API 帮助」入口查看当前实例地址、
+  调用示例和支持的接口。
+  注意：Shimmy 自身没有任何鉴权，任何人都能用它的 API 跑推理，因此本应用保留懒猫入口登录，
+  不对外开放（未使用 public_path）。
+  English: Place GGUF models in the app data models directory. Open "API Help" for the
+  instance URL, an example request, and supported endpoints.
+  Note: Shimmy has no authentication of its own, so this app stays behind the
+  LazyCat platform login and is NOT exposed publicly (no public_path).
+  未做实机验证。
