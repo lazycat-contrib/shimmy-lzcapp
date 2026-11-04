@@ -1,5 +1,5 @@
 package: community.lazycat.app.shimmy
-version: 0.0.0
+version: 2.5.0
 name: Shimmy
 description: Lightweight local AI inference server with an OpenAI-compatible API
 min_os_version: 1.5.0
